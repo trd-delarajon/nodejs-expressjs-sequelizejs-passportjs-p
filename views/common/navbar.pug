@@ -1,0 +1,15 @@
+mixin navbar(user)
+  nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+    a(href='/').navbar-brand Navbar
+    button(type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation").navbar-toggler
+      span.navbar-toggler-icon
+
+    div.collapse.navbar-collapse#navbarsExampleDefault
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href="/") Home
+        li.nav-item
+          a.nav-link(href="/") Link
+        li.nav-item
+          a.nav-link.disabled(href="/" tabindex="-1" aria-disabled="true") Disabled
+</nav>
