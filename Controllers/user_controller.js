@@ -51,3 +51,13 @@ exports.signup = function(req, res, next){
         }
     });
 }
+
+exports.show_login = function(req, res, next)
+{
+    res.render('User/login', {formData: {}, errors: {}, title: 'Starteer login'});
+}
+
+exports.login = function(req, res, next)
+{
+    res.render('User/login', {formData: {}, errors: {}, title: 'Starteer login'});
+}
