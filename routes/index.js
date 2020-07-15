@@ -7,6 +7,6 @@ var user = require('../Controllers/user_controller');
 router.get('/', index.index);
 
 router.get('/signup', user.show_signup);
-//router.post('/signup', user.signup);
+router.post('/signup', user.signup);
 
 module.exports = router;
