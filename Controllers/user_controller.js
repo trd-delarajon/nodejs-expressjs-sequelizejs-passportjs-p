@@ -1,6 +1,7 @@
 let models = require('../models');
 const bcrypt = require("bcrypt");
 const passport = require('passport');
+const myPassport = require("../passport_config")(passport);
 let flash = require("connect-flash");
 const {isEmpty} = require("lodash");
 const { validateUser } = require('../validation/signup_validation');
@@ -66,5 +67,12 @@ exports.login = function(req, res, next)
         successRedirect: "/",
         failureRedirect: "/login",
         failureFalsh: true
-    })(req,res,next)
+    })(req,res,next);
+}
+
+exports.logout = function(req, res, next)
+{
+    req.logout();
+    req.session.destroy();
+    res.redirect('/');
 }

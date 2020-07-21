@@ -25,6 +25,7 @@ module.exports = function(passport)
             {
                 done(new Error('Wrong user id.'));
             }
+            console.log('success in id');
             done(null, user);
         })
     });
@@ -35,7 +36,7 @@ module.exports = function(passport)
         function(req, username, password, done)
         {
             return models.SG_Users.findOne({
-                where: {username: username}
+                where: {'username': username}
             }).then(user => {
                 if(user == null)
                 {
@@ -52,6 +53,8 @@ module.exports = function(passport)
                     req.flash('message','Incorrect credentials');
                     return done(null, false);
                 }
+                console.log("login success!");
+                console.log(user);
                 return done(null, user);
             }).catch(err => {done(err,false)});
         }
