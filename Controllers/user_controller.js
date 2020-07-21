@@ -1,5 +1,7 @@
 let models = require('../models');
 const bcrypt = require("bcrypt");
+const passport = require('passport');
+let flash = require("connect-flash");
 const {isEmpty} = require("lodash");
 const { validateUser } = require('../validation/signup_validation');
 
@@ -59,5 +61,10 @@ exports.show_login = function(req, res, next)
 
 exports.login = function(req, res, next)
 {
-    res.render('User/login', {formData: {}, errors: {}, title: 'Starteer login'});
+    passport.authenticate('local', 
+    {
+        successRedirect: "/",
+        failureRedirect: "/login",
+        failureFalsh: true
+    })(req,res,next)
 }
