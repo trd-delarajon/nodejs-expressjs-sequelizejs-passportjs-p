@@ -1,8 +1,6 @@
 let models = require('../models');
 const bcrypt = require("bcrypt");
 const passport = require('passport');
-const myPassport = require("../passport_config")(passport);
-let flash = require("connect-flash");
 const {isEmpty} = require("lodash");
 const { validateUser } = require('../validation/signup_validation');
 
